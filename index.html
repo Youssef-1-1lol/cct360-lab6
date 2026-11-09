@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A little window into the weather. Live weather data turns into a changing landscape.">
+  <title>Outside Now — a live weather window</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="masthead">
+      <a class="wordmark" href="./" aria-label="Outside Now home"><span aria-hidden="true">◒</span> outside now</a>
+      <span class="edition">A LITTLE WEATHER WINDOW / 01</span>
+    </header>
+
+    <section class="intro" aria-labelledby="title">
+      <div><p class="eyebrow">LOOK UP. TAKE A BREATH.</p><h1 id="title">A change of scenery.</h1></div>
+      <p class="intro-copy">Same window, different skies.<br>See what outside feels like right now.</p>
+    </section>
+
+    <div class="controls">
+      <div class="location-control"><label for="city">YOUR WINDOW</label>
+        <select id="city">
+          <option value="oakville">Oakville, ON</option>
+          <option value="toronto">Toronto, ON</option>
+          <option value="montreal">Montréal, QC</option>
+          <option value="vancouver">Vancouver, BC</option>
+        </select>
+      </div>
+      <div class="control-actions">
+        <button id="unit" type="button" aria-label="Switch temperature to Fahrenheit">°C <span aria-hidden="true">/ °F</span></button>
+        <button id="refresh" type="button"><span aria-hidden="true">↻</span> Refresh</button>
+      </div>
+    </div>
+
+    <section class="weather-window" id="window" data-weather="clear" data-night="false" aria-label="Weather scene" aria-busy="true">
+      <div class="landscape" aria-hidden="true">
+        <div class="stars"></div><div class="orb"></div>
+        <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div><div class="cloud cloud-three"></div>
+        <div class="hill hill-back"></div><div class="hill hill-front"></div>
+        <div class="water"></div><div class="shore"></div>
+        <div class="tree tree-one"><i></i></div><div class="tree tree-two"><i></i></div>
+        <div class="bench"><i></i></div><div id="precipitation" class="precipitation"></div>
+      </div>
+      <div class="scene-top"><span class="location-stamp" id="location-stamp">OAKVILLE, ON</span><span class="data-badge" id="data-badge">CONNECTING</span></div>
+      <div class="scene-report"><p id="condition">Opening your window…</p><p class="temperature"><span id="temperature">—</span><span id="temperature-unit">°C</span></p><p id="feels-like">Fetching current weather</p></div>
+      <p class="scene-caption" id="scene-caption">A landscape shaped by the weather.</p>
+    </section>
+
+    <div class="below-window"><p id="status" role="status" aria-live="polite">Loading weather…</p><label class="motion-control"><input type="checkbox" id="motion"> Pause motion</label></div>
+
+    <section class="details" aria-label="Weather details">
+      <article><span class="detail-number">01 / WIND</span><p><strong id="wind">—</strong> <span>km/h</span></p><small id="wind-note">Waiting for the breeze</small></article>
+      <article><span class="detail-number">02 / CLOUD COVER</span><p><strong id="cloud">—</strong> <span>%</span></p><small>The sky sets the mood</small></article>
+      <article><span class="detail-number">03 / TODAY'S RANGE</span><p><strong id="range">—</strong></p><small>Forecast low → high</small></article>
+    </section>
+
+    <footer><p>Not just numbers. <span>The sky, clouds and movement respond to live weather data.</span></p><p>Weather by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a><br><span>Modelled current conditions · refreshes every 5 minutes</span></p></footer>
+    <noscript><p class="noscript">Please enable JavaScript to load the weather.</p></noscript>
+  </main>
+</body>
+</html>
